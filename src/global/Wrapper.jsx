@@ -1,6 +1,6 @@
 import { LoadingAnimation } from "./animation";
 
-const Wrapper = ({ children, loadingCustom }) => {
+export const Wrapper = ({ children, loadingCustom }) => {
   return (
     <div className="p-2 mt-12 ">
       {loadingCustom ?  <div>{children}</div> : <LoadingAnimation>{children}</LoadingAnimation>}
