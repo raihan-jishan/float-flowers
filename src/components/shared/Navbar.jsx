@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HiMiniBars2 } from "react-icons/hi2";
 import { RiFlowerLine } from "react-icons/ri";
 import { linksData } from "../../constants";
@@ -8,39 +8,57 @@ import NavLinks from "../ui/NavLinks";
 
 const Navbar = () => {
   const [nav, setNav] = useState("");
-  
+  const [color, setColor] = useState("transparent");
+  const [textColor, setTextColor] = useState("white");
+
   // handleNav function
   const handleNav = () => setNav(!nav);
-  
+
   // closeNav function
   const closeNav = () => setNav(false);
 
+  // useEffect hook
+  useEffect(() => {
+    const changeColor = () => {
+      if (window.scrollY >= 90) {
+        setColor("#f6f6f6");
+        setTextColor("#000000");
+      } else {
+        setColor("transparent");
+        setTextColor("#ffffff");
+      }
+    };
+    window.addEventListener("scroll", changeColor);
+  }, []);
+
   return (
-    <nav className="backdrop-blur-xl fixed w-full z-20 top-0 start-0 p-4 max-lg:p-0">
+    <nav
+      style={{ backgroundColor: `${color}` }}
+      className=" fixed w-full z-20 top-0 start-0 p-4 max-lg:p-0"
+    >
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         {/* Application Logo */}
         <Brand />
-        
         <div className="flex md:order-2 space-x-2 md:space-x-0 rtl:space-x-reverse">
           {/* CTA Button */}
           <BtnPrimary
             label={"gift flower"}
-            icon={<RiFlowerLine className="text-xl  md:text-3xl lg:text-3xl max-lg:hidden " />}
+            icon={
+              <RiFlowerLine className="text-xl  md:text-3xl lg:text-3xl max-lg:hidden " />
+            }
             navVarient
           />
-         
           {/* Mobile Menu Toggle Button */}
-          <button 
+          <button
             type="button"
             className="inline-flex items-center p-2 w-12 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400"
             onClick={handleNav}
           >
             <span className="sr-only">Open main menu</span>
-          {/* bars icon */}
-          <HiMiniBars2 size={40}   />
+            {/* bars icon */}
+            <HiMiniBars2 size={40} />
           </button>
         </div>
-
         {/* Navigation Links */}
         <div
           className={

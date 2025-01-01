@@ -1,14 +1,22 @@
+import Deal from "./components/Deal";
+import DownloadApp from "./components/DownloadApp";
+import Features from "./components/Features";
 import Hero from "./components/Hero";
+import OurTestimonial from "./components/OurTestimonial";
+import Review from "./components/Review";
+import Footer from './components/shared/Footer';
 import Navbar from "./components/shared/Navbar";
-
 function App() {
   return (
     <div>
       <Navbar />
       <Hero /> 
-      <h1 className="text-5xl mt-24">
-      hello world
-    </h1>
+      <Features />
+      <Deal />
+      <OurTestimonial /> 
+      <Review /> 
+      <DownloadApp />
+      <Footer />
     </div>
   )
 }
