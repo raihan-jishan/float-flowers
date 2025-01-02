@@ -1,8 +1,8 @@
 import { BsShop } from "react-icons/bs";
 import { CiShop } from "react-icons/ci";
 import { LoadingAnimation } from "../global/animation";
-import { Wrapper } from "../global/wrapper";
-import { BtnPrimary, BtnSecondary } from "./ui/button";
+import { Wrapper } from "../global/Wrapper.jsx";
+import { BtnPrimary, BtnSecondary } from "./ui/Button.jsx";
 import HeroImage from "./ui/heroImage";
 const Hero = () => {
   return (
