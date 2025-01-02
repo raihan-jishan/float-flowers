@@ -3,7 +3,7 @@ import { HiMiniBars2 } from "react-icons/hi2";
 import { RiFlowerLine } from "react-icons/ri";
 import { linksData } from "../../constants";
 import Brand from "../ui/Brand";
-import { BtnPrimary } from "../ui/button";
+import { BtnPrimary } from "../ui/Button.jsx";
 import NavLinks from "../ui/NavLinks";
 
 const Navbar = () => {
